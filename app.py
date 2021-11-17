@@ -29,7 +29,7 @@ if submit:
         vidhd_1 = vidhd.find('https://vidhd.fun')
         vidhd = vidhd[vidhd_1:]
         vidhd = vidhd[0: vidhd.index('"')]
-        pyperclip.copy(vidhd)
+
         st.code(vidhd)
 
 

@@ -2,3 +2,4 @@ requests==2.25.1
 pyperclip==1.8.2
 streamlit==1.1.0
 beautifulsoup4==4.10.0
+bs4==4.10.0

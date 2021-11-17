@@ -27,8 +27,8 @@ if submit:
         vidhd = str(soup)
         vidhd_1 = vidhd.find('https://vidhd.fun')
         vidhd = vidhd[vidhd_1:]
-        vidhd = vidhd[0: vidhd.index('"')]
-        st.code(vidhd)
+        vidhd = vidhd[0: vidhd.index('.html')]
+        st.code(vidhd + '.html')
 
 
 st.caption('Made By [Flix](http://flix.pythonanywhere.com/)')

@@ -23,9 +23,6 @@ input = form.text_input("Enter Movie Url from shahed4u.land")
 submit =   form.form_submit_button("Submit")
 
 if submit:
-
-
-    try:
         r = requests.get(input)
         soup = BeautifulSoup(r.content, 'html.parser')
         vidhd = str(soup)
@@ -35,8 +32,5 @@ if submit:
         pyperclip.copy(vidhd)
         st.code(vidhd)
 
-
-    except:
-        st.error('Cant Find Vidhd Link')
 
 st.caption('Made By [Flix](http://flix.pythonanywhere.com/)')

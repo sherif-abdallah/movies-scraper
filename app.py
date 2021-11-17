@@ -22,6 +22,7 @@ input = form.text_input("Enter Movie Url from shahed4u.land")
 submit =   form.form_submit_button("Submit")
 
 if submit:
+    st.warning('Loading...')
     try:
         r = requests.get(input)
         soup = BeautifulSoup(r.content, 'html.parser')

@@ -17,17 +17,17 @@ input = form.text_input("Enter Movie Url from mycima.ws")
 # Now add a submit button to the form:
 submit =   form.form_submit_button("Submit")
 if submit:
-    try:
-        driver = webdriver.ChromeOptions()
-        driver.add_argument('headless')
-        driver = webdriver.Chrome(options=driver)
-        r = driver.get(input)
-        source = driver.page_source
-        soup = BeautifulSoup(source, "html.parser")
-        soup = str(soup)
-        # Get Links
-    except:
-        st.error('Write a Valid Url')
+    driver = webdriver.ChromeOptions()
+    driver.add_argument('headless')
+    driver = webdriver.Chrome(options=driver)
+    r = driver.get(input)
+    source = driver.page_source
+    soup = BeautifulSoup(source, "html.parser")
+    soup = str(soup)
+
+            # Get Links
+#     except:
+#         st.error('Write a Valid Url')
 
     try:
         govid_1 = soup.find('https://govid.cyou')

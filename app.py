@@ -33,7 +33,7 @@ descrip = soup.find('p', attrs = {'class':'descrip'})
 RatingImdb = soup.find('div', attrs = {'class':'RatingImdb'}) 
 # rate = RatingImdb.find('em')
 image = soup.find('div', class_="PosterShape")
-image = image.attrs.get('data-style')
+image = image['data-style']
 image = re.search("(?P<url>https?://[^\s]+)", image).group("url")
 image = str(image).replace(')', '').replace(';', '')
 image = '''

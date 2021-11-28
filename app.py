@@ -4,8 +4,6 @@ import streamlit as st
 import re
 
 
-
-
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -28,7 +26,6 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 input = st.text_input("Enter Movie Url from arabseed.ws")
 # submit = form.form_submit_button("Submit")
 
-try:
     # INFO
     r = requests.get(input)
     soup = BeautifulSoup(r.content, 'html5lib')
@@ -113,6 +110,4 @@ try:
     st.code(downloadserver[download_option]['href'])
 
 
-except:
-    st.error('Please Write a valid URL')
 st.caption('Made By [Flix](http://flix.pythonanywhere.com/)')

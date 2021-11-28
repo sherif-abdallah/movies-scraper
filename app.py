@@ -12,7 +12,6 @@ header {visibility: hidden;}
 button[title="View fullscreen"] {
 display: none;
 }
-
 button[title="View fullscreen"]:hover {
 display: none;
 }
@@ -32,7 +31,7 @@ soup = BeautifulSoup(r.content)
 title = soup.find('h1', attrs = {'class':'Title'}) 
 descrip = soup.find('p', attrs = {'class':'descrip'}) 
 RatingImdb = soup.find('div', attrs = {'class':'RatingImdb'}) 
-rate = RatingImdb.find('em')
+# rate = RatingImdb.find('em')
 image = soup.find('div', class_="PosterShape")
 image = image.attrs.get('data-style')
 image = re.search("(?P<url>https?://[^\s]+)", image).group("url")
@@ -56,8 +55,8 @@ st.write('Title')
 st.code(title.text)
 st.write('Description')
 st.code(descrip.text)
-st.write('IMDB Rating')
-st.code(rate.text)
+# st.write('IMDB Rating')
+# st.code(rate.text)
 MetaTermsInfo = soup.find('div', class_='MetaTermsInfo')
 MetaTermsInfo = MetaTermsInfo.find_all('a')
 st.table(MetaTermsInfo)

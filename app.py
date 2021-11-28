@@ -28,7 +28,7 @@ input = st.text_input("Enter Movie Url from arabseed.ws")
 
 # INFO
 r = requests.get(input)
-soup = BeautifulSoup(r.content, 'html5lib')
+soup = BeautifulSoup(r.content)
 title = soup.find('h1', attrs = {'class':'Title'}) 
 descrip = soup.find('p', attrs = {'class':'descrip'}) 
 RatingImdb = soup.find('div', attrs = {'class':'RatingImdb'}) 
@@ -66,7 +66,7 @@ st.table(MetaTermsInfo)
 
 # Watch Servers
 r = requests.get(input + '/watch/')
-soup = BeautifulSoup(r.content, 'html5lib')
+soup = BeautifulSoup(r.content)
 containerServers = soup.find('div', class_='containerServers')
 allcontainerServers = containerServers.find_all('li')
 option = st.selectbox('Choosse a Server',tuple( range(0, len(allcontainerServers))))
@@ -74,7 +74,7 @@ option = st.selectbox('Choosse a Server',tuple( range(0, len(allcontainerServers
 
 currentvideo = containerServers.find_all("li", {"data-server" : option})
 currentvideo = str(currentvideo).replace('[', '').replace(']', '')
-videosoup = BeautifulSoup(currentvideo, 'html5lib')
+videosoup = BeautifulSoup(currentvideo)
 
 videotitle = videosoup.find('span')
 videotitle = str(videotitle.text).replace('p', '').replace('ٍ', '')
@@ -102,7 +102,7 @@ st.markdown(iframe, unsafe_allow_html=True)
 
 # Download Servers
 r = requests.get(input + '/download/')
-soup = BeautifulSoup(r.content, 'html5lib')
+soup = BeautifulSoup(r.content)
 DownloadArea = soup.find('div', class_='DownloadArea')
 downloadserver = DownloadArea.find_all('a')
 download_option = st.selectbox('Choosse a Download Server',tuple( range(0, len(downloadserver))))

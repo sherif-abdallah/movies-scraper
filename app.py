@@ -31,32 +31,10 @@ soup = BeautifulSoup(r.content)
 title = soup.find('h1', attrs = {'class':'Title'}) 
 descrip = soup.find('p', attrs = {'class':'descrip'}) 
 RatingImdb = soup.find('div', attrs = {'class':'RatingImdb'}) 
-# rate = RatingImdb.find('em')
-image = soup.find('div', class_="PosterShape")
-image = image['data-style']
-image = re.search("(?P<url>https?://[^\s]+)", image).group("url")
-image = str(image).replace(')', '').replace(';', '')
-image = '''
-    <style>
-    .image{
-        width: 200px;
-        height: 350px;
-    }
-    @media screen and (min-width: 800px) {
-        .image{
-            width: 320px;
-            height: 450px;
-        }
-    }  
-    </style>              
-    <br><center><img class="image"  src="''' + image + '''" ></center><br>'''
-st.markdown(image, unsafe_allow_html=True)
 st.write('Title')
 st.code(title.text)
 st.write('Description')
 st.code(descrip.text)
-# st.write('IMDB Rating')
-# st.code(rate.text)
 MetaTermsInfo = soup.find('div', class_='MetaTermsInfo')
 MetaTermsInfo = MetaTermsInfo.find_all('a')
 st.table(MetaTermsInfo)

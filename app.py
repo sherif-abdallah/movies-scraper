@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import streamlit as st
 import re
+from pytube import YouTube
 
 
 
@@ -25,7 +26,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 # form = st.form("my_form")
-input = st.text_input("Enter Movie Url from arabseed.ws")
+input = st.sidebar.text_input("Enter Movie Url from arabseed.ws")
 # submit = form.form_submit_button("Submit")
 
 
@@ -86,7 +87,7 @@ try:
     iframe = '''
                 <style>
                 .video{
-                    width: 350px;
+                    width: 300px;
                     height: 250px;
                 }
                 @media screen and (min-width: 800px) {
@@ -111,5 +112,39 @@ try:
 
 
 except:
-    st.error('Please Write a valid URL')
-st.caption('Made By [Flix](http://flix.pythonanywhere.com/)')
+    pass
+
+
+
+
+
+
+
+
+yt = st.sidebar.text_input("Enter Traler URL From Youtube")
+
+
+
+try:
+    yt = YouTube(yt).embed_url
+    st.header('Trailer')
+    
+
+    st.code(yt)
+    ytiframe  = '''
+                    <style>
+                    .video{
+                        width: 300px;
+                        height: 250px;
+                    }
+                    @media screen and (min-width: 800px) {
+                        .video{
+                            width: 700px;
+                            height: 400px;
+                        }
+                    }  
+                    </style>              
+                    <center><iframe class="video"  src="''' + yt + '''"  frameborder="0" ></iframe></center>'''
+    st.markdown(ytiframe, unsafe_allow_html=True)
+except:
+    pass

@@ -12,7 +12,7 @@ Install the package requirements
 ```bash
 pip3 install -r requirements.txt
 ```
-Install the package requirements
+Run the program
 ```bash
 streamlit run app.py
 ```

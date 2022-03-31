@@ -1,12 +1,12 @@
-# Movie Scrapper
+# Movies Scrapper
 
 Create Virtual enviroumunt if there isn't
 ```bash
-python3 -m venv movie-link
+python3 -m venv venv
 ```
 Activate The Virtual enviroumunt
 ```bash
-source movie-link/bin/activate
+source venv/bin/activate
 ```
 Install the package requirements
 ```bash

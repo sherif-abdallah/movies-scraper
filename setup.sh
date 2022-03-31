@@ -1,4 +1,13 @@
-python3 -m venv movie-link
-source movie-link/bin/activate
-pip3 install -r requirements.txt
-streamlit run app.py
+mkdir -p ~/.streamlit/
+
+echo "\
+[general]\n\
+email = \"sherifabdalla2005@gmail.com\"\n\
+" > ~/.streamlit/credentials.toml
+
+echo "\
+[server]\n\
+headless = true\n\
+enableCORS=false\n\
+port = $PORT\n\
+" > ~/.streamlit/config.toml

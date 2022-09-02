@@ -43,9 +43,6 @@ $ source venv/bin/activate
 Note the `(venv)` in front of the prompt. This indicates that this terminal
 session operates in a virtual environment set up by `virtualenv`.
 
-Once `pip` has finished downloading the dependencies: <br>
-Go the `.env` file and Change  `DEBUG = True` `PRODUCTION = False`
-
 
 * Finally run The Server
 ```sh

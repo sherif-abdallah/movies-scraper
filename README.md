@@ -47,7 +47,7 @@ Once `pip` has finished downloading the dependencies: <br>
 Go the `.env` file and Change  `DEBUG = True` `PRODUCTION = False`
 
 
-* Finally run The Geekshub Server
+* Finally run The Server
 ```sh
 (venv)$ python -m streamlit run app.py
 ```
